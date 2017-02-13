@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_resumen"
     android:layout_width="match_parent"
@@ -11,17 +12,6 @@
     tools:context="com.example.cursomaana.ejercicio1.ActivityResumen">
 
     <TextView
-        android:text="Resumen configuracion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="53dp"
-        android:id="@+id/tituloResumen"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="normal|bold"
-        android:textSize="18sp" />
-
-    <TextView
         android:text="bienvenido caca la vaca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,24 +21,6 @@
         android:id="@+id/textView2" />
 
     <TextView
-        android:text="privacidad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_toStartOf="@+id/textView2"
-        android:layout_marginTop="36dp"
-        android:id="@+id/labelPrivi" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/labelPrivi"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="64dp"
-        android:id="@+id/boolPrivi" />
-
-    <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,21 +28,109 @@
         android:layout_alignStart="@+id/boolPrivi"
         android:id="@+id/boolAhorro" />
 
-    <TextView
-        android:text="Ahorro de bateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
-        android:id="@+id/labelBateria"
-        android:layout_below="@+id/labelPrivi"
-        android:layout_alignStart="@+id/labelPrivi" />
-
     <Button
         android:text="Volver al inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:id="@+id/back_ini"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="93dp"
-        android:id="@+id/back_ini" />
+        android:layout_alignEnd="@+id/textView2" />
+
+    <TextView
+        android:text="Resumen configuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tituloResumen"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/boolPrivi"
+        android:layout_alignBaseline="@+id/labelPrivi"
+        android:layout_alignBottom="@+id/labelPrivi"
+        android:layout_toEndOf="@+id/tituloResumen" />
+
+    <ImageView
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_usuario"
+        android:id="@+id/imageView"
+        android:layout_marginTop="34dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="privacidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelPrivi"
+        android:layout_below="@+id/imageView"
+        android:layout_toStartOf="@+id/textView2"
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:text="Ahorro de bateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelBateria"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/labelPrivi" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView7"
+        android:layout_alignEnd="@+id/boolAhorro"
+        android:id="@+id/redMovil" />
+
+    <TextView
+        android:text="red movil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/boolAhorro"
+        android:layout_alignStart="@+id/labelBateria" />
+
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textviewtono"
+        android:layout_alignEnd="@+id/boolAhorro"
+        android:id="@+id/tono" />
+
+    <TextView
+        android:text="tono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:id="@+id/textviewtono"
+        android:layout_below="@+id/textView7"
+        android:layout_alignStart="@+id/textView7" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textviewtema"
+        android:layout_alignEnd="@+id/boolAhorro"
+        android:id="@+id/tema" />
+
+    <TextView
+        android:text="tema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:id="@+id/textviewtema"
+        android:layout_below="@+id/tono"
+        android:layout_alignStart="@+id/textView7" />
 </RelativeLayout>

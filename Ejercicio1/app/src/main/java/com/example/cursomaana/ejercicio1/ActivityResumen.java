@@ -27,6 +27,13 @@ public class ActivityResumen extends AppCompatActivity {
         TextView ahorrador = (TextView) findViewById(R.id.boolAhorro);
         TextView privado = (TextView) findViewById(R.id.boolPrivi);
         Button inicio = (Button) findViewById(R.id.back_ini);
+        TextView tono = (TextView) findViewById(R.id.tono);
+        TextView tema = (TextView) findViewById(R.id.tema);
+        TextView red = (TextView) findViewById(R.id.redMovil);
+        Intent intent= this.getIntent();
+        tono.setText(intent.getStringExtra("musica"));
+        tema.setText(intent.getStringExtra("tema"));
+        red.setText(intent.getStringExtra("red"));
         if (ahorro) {
             ahorrador.setText("Activado");
             ahorrador.setTextColor(Color.GREEN);
