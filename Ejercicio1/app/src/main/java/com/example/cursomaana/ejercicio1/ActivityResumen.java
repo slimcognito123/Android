@@ -1,31 +1,52 @@
 package com.example.cursomaana.ejercicio1;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 public class ActivityResumen extends AppCompatActivity {
 
     private boolean privacidad;
     private boolean ahorro;
     private String nombre;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumen);
-        privacidad = (boolean) savedInstanceState.get("privacidad");
-        ahorro = (boolean) savedInstanceState.get("ahorrador");
-        nombre = (String) savedInstanceState.get("nombreUsuario");
+        Intent intento = this.getIntent();
+        nombre = intento.getStringExtra("nombreUsuario");
+        privacidad = intento.getBooleanExtra("privacidad", false);
+        ahorro = intento.getBooleanExtra("ahorrador", false);
         TextView textView = (TextView) findViewById(R.id.textView2);
-        textView.setText("Bienvenido "+nombre);
-        TextView ahorrador  = (TextView) findViewById(R.id.boolAhorro);
+        textView.setText("Bienvenido " + nombre);
+        TextView ahorrador = (TextView) findViewById(R.id.boolAhorro);
         TextView privado = (TextView) findViewById(R.id.boolPrivi);
-        if(ahorro){
+        Button inicio = (Button) findViewById(R.id.back_ini);
+        if (ahorro) {
             ahorrador.setText("Activado");
+            ahorrador.setTextColor(Color.GREEN);
+        } else {
+            ahorrador.setText("Desactivado");
+            ahorrador.setTextColor(Color.RED);
         }
-
+        if (privacidad) {
+            privado.setText("Activado");
+            privado.setTextColor(Color.GREEN);
+        } else {
+            privado.setText("Desactivado");
+            privado.setTextColor(Color.RED);
+        }
+        inicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityResumen.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

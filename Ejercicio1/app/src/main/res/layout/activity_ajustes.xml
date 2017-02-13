@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_ajustes"
     android:layout_width="match_parent"
@@ -11,89 +12,192 @@
     tools:context="com.example.cursomaana.ejercicio1.ActivityAjustes">
 
     <TextView
-        android:text="Ajustes"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginEnd="18dp"
+        android:layout_marginTop="52dp"
+        android:layout_toStartOf="@+id/ajustesText"
+        android:text="Ahorro Bateria" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/privacidad"
+        android:layout_below="@+id/ahorro"
+        android:layout_marginTop="32dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+
+    <TextView
+        android:id="@+id/ajustesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
-        android:id="@+id/ajustesText"
-        android:textSize="24sp"
-        android:textColor="@android:color/background_dark" />
-
-    <TextView
-        android:text="Ahorro Bateria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_toStartOf="@+id/ajustesText"
-        android:layout_marginEnd="18dp" />
-
-    <TextView
-        android:text="Privacidad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/ajustesText"
-        android:layout_alignEnd="@+id/textView4"
-        android:layout_marginEnd="11dp" />
+        android:text="Ajustes"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
 
     <Switch
+        android:id="@+id/privacidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView4"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="18dp"
-        android:id="@+id/privacidad" />
+        android:layout_below="@+id/ajustesText"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/linearLayout3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ahorro"
+        android:layout_alignStart="@+id/textView4"
+        android:text="Privacidad" />
 
     <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/privacidad"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
         android:id="@+id/ahorro"
-        android:background="@drawable/baterias"
-        android:textColor="@android:color/holo_blue_bright" />
-
-    <Button
-        android:text="RESETEAR VALORES POR DEFECTO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
-        android:id="@+id/button"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/privacidad"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/baterias"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView4"
         android:layout_below="@+id/ahorro"
-        android:layout_centerHorizontal="true" />
+        android:text="solo WiFi" />
+
+    <CheckBox
+        android:id="@+id/soloWifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignTop="@+id/button"
+        android:text="propiedades de red" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="195dp"
+        android:orientation="vertical">
+
+
+        <RadioButton
+            android:id="@+id/radioAutoG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/radio4G"
+            android:layout_below="@+id/radio4G"
+            android:text="auto" />
+
+        <RadioButton
+            android:id="@+id/radio3G"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/ajustesText"
+            android:layout_alignTop="@+id/textView5"
+            android:text="3G" />
+
+        <RadioButton
+            android:id="@+id/radio4G"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/radio3G"
+            android:layout_centerVertical="true"
+            android:text="4G" />
+
+    </RadioGroup>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/button">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal">
 
-        <Button
-            android:text="ATRAS"
+        <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
-            android:layout_height="81dp"
-            android:id="@+id/atras"
-            android:layout_weight="1.00"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:drawableLeft="?attr/actionModeCloseDrawable" />
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/spinTheme"
+            android:layout_marginStart="13dp"
+            android:text="theme" />
 
-        <Button
-            android:text="OK"
+        <Spinner
+            android:id="@+id/spinTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
-            android:layout_height="78dp"
-            android:id="@+id/ok"
-            android:layout_weight="1.00"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:drawableRight="@drawable/pues_oc" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:text="tono" />
+
+        <Spinner
+            android:id="@+id/spinTono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="204dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/atras"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.04"
+            android:drawableLeft="?attr/actionModeCloseDrawable"
+            android:text="ATRAS" />
+
+        <Button
+            android:id="@+id/ok"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/pues_oc"
+            android:text="OK" />
+
+    </LinearLayout>
 </RelativeLayout>
