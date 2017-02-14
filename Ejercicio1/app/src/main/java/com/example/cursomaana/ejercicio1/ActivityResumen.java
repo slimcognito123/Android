@@ -1,6 +1,7 @@
 package com.example.cursomaana.ejercicio1;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,10 +15,16 @@ public class ActivityResumen extends AppCompatActivity {
     private boolean ahorro;
     private String nombre;
 
+    private TextView labelPrivi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_resumen);
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        if(getRequestedOrientation()==ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+            setContentView(R.layout.activity_resumen2);
+        else setContentView(R.layout.activity_resumen);
+
         Intent intento = this.getIntent();
         nombre = intento.getStringExtra("nombreUsuario");
         privacidad = intento.getBooleanExtra("privacidad", false);
@@ -34,6 +41,24 @@ public class ActivityResumen extends AppCompatActivity {
         tono.setText(intent.getStringExtra("musica"));
         tema.setText(intent.getStringExtra("tema"));
         red.setText(intent.getStringExtra("red"));
+        ahorricidadYPrivacidad(ahorrador, privado);
+        cambiarTemasApp(tema);
+        inicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityResumen.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void cambiarTemasApp(TextView tema) {
+        if(tema.equals("claro")){
+
+        }
+    }
+
+    private void ahorricidadYPrivacidad(TextView ahorrador, TextView privado) {
         if (ahorro) {
             ahorrador.setText("Activado");
             ahorrador.setTextColor(Color.GREEN);
@@ -48,12 +73,5 @@ public class ActivityResumen extends AppCompatActivity {
             privado.setText("Desactivado");
             privado.setTextColor(Color.RED);
         }
-        inicio.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ActivityResumen.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 }

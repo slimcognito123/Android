@@ -37,9 +37,11 @@ public class ActivityAjustes extends AppCompatActivity {
         spinarack = (Spinner) findViewById(R.id.spinTheme);
         spinaca = (Spinner) findViewById(R.id.spinTono);
         String[] datos = new String[]{"Claro", "Oscuro", "Azul"};
+
         ArrayAdapter<String> adaptador = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, datos);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinarack.setAdapter(adaptador);
+
         ArrayAdapter<CharSequence> adapterUSB = ArrayAdapter.createFromResource(this, R.array.valores_array, android.R.layout.simple_spinner_item);
         adapterUSB.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinaca.setAdapter(adapterUSB);
