@@ -8,10 +8,17 @@ public class Jugador {
     private String nombre;
     private int imgPerfil;
     private String posicion;
+    private String numeroDorsal;
 
-    public Jugador(String nombre, int imgPerfil, String posicion) {
+    public Jugador(String nombre, int imgPerfil) {
         this.nombre = nombre;
         this.imgPerfil = imgPerfil;
+    }
+
+    public Jugador(String nombre, int imgPerfil,String numeroDorsal ,String posicion) {
+        this.nombre = nombre;
+        this.imgPerfil = imgPerfil;
+        this.numeroDorsal=numeroDorsal;
         this.posicion = posicion;
     }
 
@@ -37,5 +44,13 @@ public class Jugador {
 
     public void setPosicion(String posicion) {
         this.posicion = posicion;
+    }
+
+    public String getNumeroDorsal() {
+        return numeroDorsal;
+    }
+
+    public void setNumeroDorsal(String numeroDorsal) {
+        this.numeroDorsal = numeroDorsal;
     }
 }

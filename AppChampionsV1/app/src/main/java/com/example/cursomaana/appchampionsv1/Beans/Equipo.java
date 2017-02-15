@@ -1,5 +1,7 @@
 package com.example.cursomaana.appchampionsv1.Beans;
 
+import java.util.ArrayList;
+
 /**
  * Created by curso mañana on 14/02/2017.
  */
@@ -7,16 +9,17 @@ package com.example.cursomaana.appchampionsv1.Beans;
 public class Equipo {
     private String nombre;
     private Integer escudo;
-    private String entrenador;
+    private Jugador entrenador;
     private String estado;
     private Integer imagenEstadio;
     private String nombreEstadio;
+    private ArrayList<Jugador> jugadores;
 
     public Equipo() {
 
     }
 
-    public Equipo(String nombre, Integer escudo, String entrenador, String estado, Integer imagenEstadio, String nombreEstadio) {
+    public Equipo(String nombre, Integer escudo, Jugador entrenador, String estado, Integer imagenEstadio, String nombreEstadio) {
         this.nombre = nombre;
         this.escudo = escudo;
         this.entrenador = entrenador;
@@ -41,11 +44,11 @@ public class Equipo {
         this.escudo = escudo;
     }
 
-    public String getEntrenador() {
+    public Jugador getEntrenador() {
         return entrenador;
     }
 
-    public void setEntrenador(String entrenador) {
+    public void setEntrenador(Jugador entrenador) {
         this.entrenador = entrenador;
     }
 
@@ -71,5 +74,13 @@ public class Equipo {
 
     public void setNombreEstadio(String nombreEstadio) {
         this.nombreEstadio = nombreEstadio;
+    }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(ArrayList<Jugador> jugadores) {
+        this.jugadores = jugadores;
     }
 }

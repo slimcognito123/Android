@@ -3,6 +3,7 @@ package com.example.cursomaana.appchampionsv1.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,7 +11,7 @@ import com.example.cursomaana.appchampionsv1.Beans.Partido;
 import com.example.cursomaana.appchampionsv1.Model.PartiHub;
 import com.example.cursomaana.appchampionsv1.R;
 
-public class detallePartido extends AppCompatActivity {
+public class DetallePartido extends AppCompatActivity {
     private TextView estadio;
     private ImageView imgEstadio;
     private TextView nombreLocal;
@@ -47,13 +48,30 @@ public class detallePartido extends AppCompatActivity {
 
         escudoLocal.setImageResource(partido.getLocal().getEscudo());
         nombreLocal.setText(partido.getLocal().getNombre());
-        entrenadorLocal.setText(partido.getLocal().getEntrenador());
+        entrenadorLocal.setText(partido.getLocal().getEntrenador().getNombre());
         estadoLocal.setText(partido.getLocal().getEstado());
 
         escudoVisitante.setImageResource(partido.getVisitante().getEscudo());
         nombreVisitante.setText(partido.getVisitante().getNombre());
-        entrenadorVisitante.setText(partido.getVisitante().getEntrenador());
+        entrenadorVisitante.setText(partido.getVisitante().getEntrenador().getNombre());
         estadoVisitante.setText(partido.getVisitante().getEstado());
+
+        escudoLocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetallePartido.this, DetalleEquipo.class);
+                intent.putExtra("equipo",nombreLocal.getText());
+                startActivity(intent);
+            }
+        });
+        escudoVisitante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetallePartido.this, DetalleEquipo.class);
+                intent.putExtra("equipo",nombreVisitante.getText());
+                startActivity(intent);
+            }
+        });
 
     }
 }

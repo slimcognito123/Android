@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_detalle_equipo"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.cursomaana.appchampionsv1.Controllers.detalleEquipo">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:srcCompat="@mipmap/ic_borusia"
+                android:id="@+id/imagenEscudo" />
+
+            <TextView
+                android:text="Borusia Dormunt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nombreEquipoDetalle"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark" />
+
+            <ImageView
+                android:layout_height="120dp"
+                app:srcCompat="@mipmap/ic_estadioarsenal"
+                android:id="@+id/perfilEntrenador"
+                android:layout_width="181dp" />
+
+            <TextView
+                android:text="Paco palotes"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/nombreEntrenadorDetalle"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textColor="@android:color/background_dark" />
+
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="932dp"
+                android:id="@+id/regillaJugadores"
+                android:numColumns="auto_fit"
+                android:columnWidth="120dp"
+                android:horizontalSpacing="5dp"
+                android:verticalSpacing="10dp"
+                android:stretchMode="columnWidth" />
+
+        </LinearLayout>
+    </ScrollView>
+

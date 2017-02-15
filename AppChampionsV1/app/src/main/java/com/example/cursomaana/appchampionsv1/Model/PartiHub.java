@@ -3,6 +3,7 @@ package com.example.cursomaana.appchampionsv1.Model;
 import android.util.Log;
 
 import com.example.cursomaana.appchampionsv1.Beans.Equipo;
+import com.example.cursomaana.appchampionsv1.Beans.Jugador;
 import com.example.cursomaana.appchampionsv1.Beans.Partido;
 import com.example.cursomaana.appchampionsv1.R;
 
@@ -14,51 +15,101 @@ import java.util.ArrayList;
 
 public class PartiHub {
     private ArrayList<Partido> listaPartido;
+    private ArrayList<Equipo> listaEquipos;
 
     public PartiHub() {
         listaPartido = new ArrayList<>();
-        Equipo paris = new Equipo("Paris", R.drawable.img_paris, "Unai Emeri", "sdfhjfhjsnd an sidiosioafionsvd nlvjnlsa lknls dnjvasn", R.drawable.img_estadio_psg, "Parc de princes");
-        Equipo barcelona = new Equipo("Barcelona", R.drawable.img_barcelona, "Luis Enrique", "despues de una victoria muy reñida contra el atletico de madrid, llegan a octavos con mas fuerzas que nunca", R.drawable.img_estadio_barcelona, "Camp Nou");
-        listaPartido.add(new Partido(1,"14/02","20:45", paris, barcelona));
+        listaEquipos = new ArrayList<>();
 
-        Equipo benfica = new Equipo("Benfica", R.drawable.img_benfica, "Rui Vitória", "los portugueses quieren ganar y blablabla", R.drawable.img_estadio_benfica, "Estádio da Luz");
-        Equipo dormunt = new Equipo("Dormunt", R.drawable.img_dormunt, "Thomas Tuchel", "wqwertyuiop`wertyuaskdn aslnkankl asnldknsa (esta en aleman)", R.drawable.img_estadio_dormunt, "Signal Iduna Park");
-        listaPartido.add(new Partido(2,"14/02","20:45", benfica, dormunt));
+        Jugador unaiEmeri = new Jugador("Unai Emeri", R.drawable.img_unai_emeri);
+        Jugador luisEnrique = new Jugador("Luis Enrique", R.drawable.img_unai_emeri);
+        Equipo paris = new Equipo("Paris", R.drawable.img_paris, unaiEmeri, "sdfhjfhjsnd an sidiosioafionsvd nlvjnlsa lknls dnjvasn", R.drawable.img_estadio_psg, "Parc de princes");
+        Equipo barcelona = new Equipo("Barcelona", R.drawable.img_barcelona, luisEnrique, "despues de una victoria muy reñida contra el atletico de madrid, llegan a octavos con mas fuerzas que nunca", R.drawable.img_estadio_barcelona, "Camp Nou");
 
-        Equipo bayern = new Equipo("Bayern", R.drawable.img_bayern, "Carlo Anchelotti", "acaban de salir de comprar aspirinas para estar en formma", R.drawable.img_estadio_bayern, "Allianz arena");
-        Equipo arsenal = new Equipo("Arsenal", R.drawable.img_arsenal, "Arsène Wenger", "eisteoe toeso saof eoa soeo as (totalmente claro verdad?)", R.drawable.img_estadio_arsenal, "Emirates stadium");
-        listaPartido.add(new Partido(3,"15/02","20:45", bayern, arsenal));
+        introducirJugadores(paris);
+        introducirJugadores(barcelona);
 
-        Equipo madrid = new Equipo("Madrid", R.drawable.img_madrid, "Zinedine Zidane", "poco que decir sobre el conjunto merengue", R.drawable.img_estadio_madrid, "Santiago Bernabeu");
-        Equipo napoles = new Equipo("napoles", R.drawable.img_napoli, "Maurizio Sarri", "qwertyuiopàsdfghjklzxcvbnm (del latin 'querer ganar a toda costa')", R.drawable.img_estadio_napoli, "Sao Paolo");
-        listaPartido.add(new Partido(4,"15/02","20:45", madrid, napoles));
+        listaPartido.add(new Partido(1, "14/02", "20:45", paris, barcelona));
+        listaEquipos.add(paris);
+        listaEquipos.add(barcelona);
+
+        Jugador ruiVitoria = new Jugador("Rui Vitória", R.drawable.img_unai_emeri);
+        Jugador thomasTuchel = new Jugador("Thomas Tuchel", R.drawable.img_unai_emeri);
+        Equipo benfica = new Equipo("Benfica", R.drawable.img_benfica, ruiVitoria, "los portugueses quieren ganar y blablabla", R.drawable.img_estadio_benfica, "Estádio da Luz");
+        Equipo dormunt = new Equipo("Dormunt", R.drawable.img_dormunt, thomasTuchel, "wqwertyuiop`wertyuaskdn aslnkankl asnldknsa (esta en aleman)", R.drawable.img_estadio_dormunt, "Signal Iduna Park");
+
+        introducirJugadores(benfica);
+        introducirJugadores(dormunt);
+
+        listaPartido.add(new Partido(2, "14/02", "20:45", benfica, dormunt));
+        listaEquipos.add(benfica);
+        listaEquipos.add(dormunt);
+
+        Jugador carloAnchelotti = new Jugador("Carlo Anchelotti", R.drawable.img_unai_emeri);
+        Jugador arseneWenger = new Jugador("Arsène Wenger", R.drawable.img_unai_emeri);
+        Equipo bayern = new Equipo("Bayern", R.drawable.img_bayern, carloAnchelotti, "acaban de salir de comprar aspirinas para estar en formma", R.drawable.img_estadio_bayern, "Allianz arena");
+        Equipo arsenal = new Equipo("Arsenal", R.drawable.img_arsenal, arseneWenger, "eisteoe toeso saof eoa soeo as (totalmente claro verdad?)", R.drawable.img_estadio_arsenal, "Emirates stadium");
+
+        introducirJugadores(bayern);
+        introducirJugadores(arsenal);
+
+        listaPartido.add(new Partido(3, "15/02", "20:45", bayern, arsenal));
+        listaEquipos.add(bayern);
+        listaEquipos.add(arsenal);
+
+        Jugador zidane = new Jugador("Zinedine Zidane", R.drawable.img_unai_emeri);
+        Jugador sarri = new Jugador("Maurizio Sarri", R.drawable.img_unai_emeri);
+        Equipo madrid = new Equipo("Real Madrid", R.drawable.img_madrid, zidane, "poco que decir sobre el conjunto merengue", R.drawable.img_estadio_madrid, "Santiago Bernabeu");
+        Equipo napoles = new Equipo("napoles", R.drawable.img_napoli, sarri, "qwertyuiopàsdfghjklzxcvbnm (del latin 'querer ganar a toda costa')", R.drawable.img_estadio_napoli, "Sao Paolo");
+
+        introducirJugadores(madrid);
+        introducirJugadores(napoles);
+
+        listaPartido.add(new Partido(4, "15/02", "20:45", madrid, napoles));
+        listaEquipos.add(madrid);
+        listaEquipos.add(napoles);
+    }
+
+    private void introducirJugadores(Equipo equipo) {
+        ArrayList<Jugador> jugadores = new ArrayList<>();
+        for (int i = 0; i < 11; i++) {
+            jugadores.add(new Jugador("Unai emeri"+i,R.drawable.img_unai_emeri,""+i,"delantero"));
+        }
+        equipo.setJugadores(jugadores);
     }
 
     public PartiHub(ArrayList<Partido> listaPartido) {
         this.listaPartido = listaPartido;
     }
 
-    public  ArrayList<Partido> todosLosPartidos(){
+    public ArrayList<Partido> todosLosPartidos() {
         return listaPartido;
     }
 
-    public Partido buscarPartido(String nombreLocal, String fecha, String hora){
-        Partido partidoADevolver=null;
-        for (Partido partido : listaPartido) {
-            Log.i("pene", fecha);
-            if(nombreLocal.equals(partido.getLocal().getNombre()) && fecha.equals(partido.getFecha()) && hora.equals(partido.getHora()) ){
-                partidoADevolver=partido;
-                Log.i("entraaaa",partidoADevolver.getLocal().getNombre());
-                return partido;
-            }
-        }
-        return partidoADevolver;
-    }
+//    public Partido buscarPartido(String nombreLocal, String fecha, String hora) {
+//        Partido partidoADevolver;
+//        for (Partido partido : listaPartido) {
+//            Log.i("pene", fecha);
+//            if (nombreLocal.equals(partido.getLocal().getNombre()) && fecha.equals(partido.getFecha()) && hora.equals(partido.getHora())) {
+//                partidoADevolver = partido;
+//                Log.i("entraaaa", partidoADevolver.getLocal().getNombre());
+//                return partido;
+//            }
+//        }
+//        return null;
+//    }
 
     public Partido buscarPartido(int id) {
         for (Partido partido : listaPartido) {
             Log.i("pene", String.valueOf(id));
-            if(id==partido.getId()) return partido;
+            if (id == partido.getId()) return partido;
+        }
+        return null;
+    }
+
+    public Equipo findTeam(String equipo) {
+        for (Equipo equipaso : listaEquipos) {
+            if (equipaso.getNombre().equals(equipo)) return equipaso;
         }
         return null;
     }

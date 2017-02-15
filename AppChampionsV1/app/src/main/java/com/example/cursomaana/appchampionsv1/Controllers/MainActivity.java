@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int posicion, long id) {
-                Intent intent = new Intent (MainActivity.this,detallePartido.class);
+                Intent intent = new Intent (MainActivity.this,DetallePartido.class);
                 intent.putExtra("id",((Partido)lista.getItemAtPosition(posicion)).getId());
                 startActivity(intent);
             }

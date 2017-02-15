@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Controllers.MainActivity" />
-        <activity android:name=".Controllers.detallePartido" />
+        <activity android:name=".Controllers.DetallePartido" />
         <activity
             android:name=".Controllers.actividadInicio"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controllers.detalleEquipo"></activity>
+        <activity android:name=".Controllers.DetalleEquipo" />
+        <activity android:name=".Controllers.DetallesJugador"></activity>
     </application>
 
 </manifest>
