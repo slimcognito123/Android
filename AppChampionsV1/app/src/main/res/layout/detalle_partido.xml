@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,23 +21,25 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/estadio_TextView"
                 android:layout_weight="1"
-                android:textAlignment="textEnd" />
+                android:textAlignment="textEnd"
+                android:textSize="24sp" />
 
             <TextView
                 android:text="Calderon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tagEstadio"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="95dp"
             app:srcCompat="@mipmap/ic_launcher"
             android:id="@+id/imageView"
-            android:layout_weight="0.07" />
+            android:layout_weight="0.07"
+            android:layout_height="165dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -50,13 +51,22 @@
                 android:layout_height="wrap_content"
                 android:elevation="1dp"
                 android:minWidth="45dp"
-                android:layout_width="194dp">
+                android:layout_width="194dp"
+                android:layout_margin="7dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_bayern"
+                    android:id="@+id/tagEscudoEquipoLocal" />
 
                 <TextView
                     android:text="At.Madrid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tagEquipoLocal" />
+                    android:id="@+id/tagEquipoLocal"
+                    android:textSize="18sp"
+                    android:textStyle="normal|bold" />
 
                 <TextView
                     android:text="Cholo Simeone"
@@ -75,14 +85,23 @@
                 android:orientation="vertical"
                 android:layout_height="wrap_content"
                 android:minWidth="45dp"
-                android:layout_width="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_margin="7dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/ic_bayern"
+                    android:id="@+id/tagEscudoEquipoVisitante" />
 
                 <TextView
                     android:text="Barcelona"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tagEquipoVisitante"
-                    android:textAlignment="textEnd" />
+                    android:textAlignment="textEnd"
+                    android:textSize="18sp"
+                    android:textStyle="normal|bold" />
 
                 <TextView
                     android:text="UnTioPahí"

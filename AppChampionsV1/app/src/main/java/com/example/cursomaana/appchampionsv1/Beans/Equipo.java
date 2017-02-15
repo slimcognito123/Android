@@ -1,4 +1,4 @@
-package com.example.cursomaana.appchampionsv1;
+package com.example.cursomaana.appchampionsv1.Beans;
 
 /**
  * Created by curso mañana on 14/02/2017.

@@ -1,4 +1,4 @@
-package com.example.cursomaana.appchampionsv1;
+package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.cursomaana.appchampionsv1.Beans.Partido;
+import com.example.cursomaana.appchampionsv1.Model.PartiHub;
+import com.example.cursomaana.appchampionsv1.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int posicion, long id) {
                 Intent intent = new Intent (MainActivity.this,detallePartido.class);
-                intent.putExtra("nombreLocal",((Partido)lista.getItemAtPosition(posicion)).getLocal().getNombre());
-                intent.putExtra("dia",((Partido)lista.getItemAtPosition(posicion)).getFecha());
-                intent.putExtra("hora",((Partido)lista.getItemAtPosition(posicion)).getHora());
+                intent.putExtra("id",((Partido)lista.getItemAtPosition(posicion)).getId());
                 startActivity(intent);
             }
         });

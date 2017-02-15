@@ -1,10 +1,13 @@
-package com.example.cursomaana.appchampionsv1;
+package com.example.cursomaana.appchampionsv1.Beans;
+
+import com.example.cursomaana.appchampionsv1.Beans.Equipo;
 
 /**
  * Created by curso mañana on 14/02/2017.
  */
 
 public class Partido {
+    private int id;
     private String fecha;
     private String hora;
     private Equipo local;
@@ -14,11 +17,20 @@ public class Partido {
 
     }
 
-    public Partido(String fecha, String hora, Equipo local, Equipo visitante) {
+    public Partido(int id, String fecha, String hora, Equipo local, Equipo visitante) {
+        this.id=id;
         this.fecha = fecha;
         this.hora = hora;
         this.local = local;
         this.visitante = visitante;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFecha() {
