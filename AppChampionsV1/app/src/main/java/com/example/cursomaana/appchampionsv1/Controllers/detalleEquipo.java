@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.cursomaana.appchampionsv1.Beans.Equipo;
 import com.example.cursomaana.appchampionsv1.Beans.Jugador;
-import com.example.cursomaana.appchampionsv1.Beans.Partido;
 import com.example.cursomaana.appchampionsv1.Model.PartiHub;
 import com.example.cursomaana.appchampionsv1.R;
 
@@ -27,7 +26,7 @@ public class DetalleEquipo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_equipo);
         Intent intent = this.getIntent();
-        Equipo team= new PartiHub().findTeam(intent.getStringExtra("equipo"));
+        final Equipo team= new PartiHub().findTeam(intent.getStringExtra("equipo"));
         escudo = (ImageView) findViewById(R.id.imagenEscudo);
         entrenador = (ImageView) findViewById(R.id.perfilEntrenador);
         nombreEntrenador = (TextView) findViewById(R.id.nombreEntrenadorDetalle);
@@ -44,7 +43,17 @@ public class DetalleEquipo extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int posicion, long id) {
                 Intent intent = new Intent (DetalleEquipo.this,DetallesJugador.class);
+                intent.putExtra("equipo",team.getNombre());
                 intent.putExtra("nombreJugador",((Jugador)regilla.getItemAtPosition(posicion)).getNombre());
+                startActivity(intent);
+            }
+        });
+        entrenador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (DetalleEquipo.this,DetallesJugador.class);
+                intent.putExtra("equipo",team.getNombre());
+                intent.putExtra("isCoach",true);
                 startActivity(intent);
             }
         });

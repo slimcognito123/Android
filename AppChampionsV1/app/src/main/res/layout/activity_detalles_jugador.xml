@@ -22,7 +22,7 @@
             android:text="El Tio Pepe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2"
+            android:id="@+id/PlayerName"
             android:textAlignment="center"
             android:textSize="27dp" />
 
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="169dp"
             app:srcCompat="@drawable/img_unai_emeri"
-            android:id="@+id/imageView3" />
+            android:id="@+id/PlayerImage" />
 
         <TextView
             android:text="Posicion Actual:"
@@ -44,7 +44,7 @@
             android:text="Porteracooooo weeeeeee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4"
+            android:id="@+id/PlayerPosition"
             android:textAlignment="center"
             android:textSize="25dp" />
     </LinearLayout>
