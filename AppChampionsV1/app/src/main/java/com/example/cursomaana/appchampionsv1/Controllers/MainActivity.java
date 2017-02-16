@@ -1,8 +1,11 @@
 package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -10,6 +13,8 @@ import android.widget.ListView;
 import com.example.cursomaana.appchampionsv1.Beans.Partido;
 import com.example.cursomaana.appchampionsv1.Model.PartiHub;
 import com.example.cursomaana.appchampionsv1.R;
+
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,5 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

@@ -47,5 +47,14 @@
             android:id="@+id/PlayerPosition"
             android:textAlignment="center"
             android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/numeroCamiseta"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="normal|bold"
+            android:fontFamily="monospace" />
     </LinearLayout>
 </RelativeLayout>

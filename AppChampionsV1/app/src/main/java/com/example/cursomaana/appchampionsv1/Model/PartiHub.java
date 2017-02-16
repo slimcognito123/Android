@@ -3,6 +3,7 @@ package com.example.cursomaana.appchampionsv1.Model;
 import android.util.Log;
 
 import com.example.cursomaana.appchampionsv1.Beans.Equipo;
+import com.example.cursomaana.appchampionsv1.Beans.Estadio;
 import com.example.cursomaana.appchampionsv1.Beans.Jugador;
 import com.example.cursomaana.appchampionsv1.Beans.Partido;
 import com.example.cursomaana.appchampionsv1.R;
@@ -31,8 +32,11 @@ public class PartiHub {
         listaEntrenadores.add(unaiEmeri);
         listaEntrenadores.add(luisEnrique);
 
-        Equipo paris = new Equipo("Paris", R.drawable.img_paris, unaiEmeri, "sdfhjfhjsnd an sidiosioafionsvd nlvjnlsa lknls dnjvasn", R.drawable.img_estadio_psg, "Parc de princes");
-        Equipo barcelona = new Equipo("Barcelona", R.drawable.img_barcelona, luisEnrique, "despues de una victoria muy reñida contra el atletico de madrid, llegan a octavos con mas fuerzas que nunca", R.drawable.img_estadio_barcelona, "Camp Nou");
+        Estadio estadioParis=new Estadio("Parc de princes", R.drawable.img_estadio_psg,"https://es.wikipedia.org/wiki/Parc_des_Princes");
+        Estadio estadioBarsa = new Estadio("Camp nou",R.drawable.img_estadio_barcelona,"https://es.wikipedia.org/wiki/Camp_Nou");
+
+        Equipo paris = new Equipo("Paris", R.drawable.img_paris, unaiEmeri, "sdfhjfhjsnd an sidiosioafionsvd nlvjnlsa lknls dnjvasn",estadioParis,"http://www.psg.fr/");
+        Equipo barcelona = new Equipo("Barcelona", R.drawable.img_barcelona, luisEnrique, "despues de una victoria muy reñida contra el atletico de madrid, llegan a octavos con mas fuerzas que nunca", estadioBarsa, "https://www.fcbarcelona.com/");
 
         introducirJugadores(paris);
         introducirJugadores(barcelona);
@@ -50,8 +54,11 @@ public class PartiHub {
         listaEntrenadores.add(ruiVitoria);
         listaEntrenadores.add(thomasTuchel);
 
-        Equipo benfica = new Equipo("Benfica", R.drawable.img_benfica, ruiVitoria, "los portugueses quieren ganar y blablabla", R.drawable.img_estadio_benfica, "Estádio da Luz");
-        Equipo dormunt = new Equipo("Dormunt", R.drawable.img_dormunt, thomasTuchel, "wqwertyuiop`wertyuaskdn aslnkankl asnldknsa (esta en aleman)", R.drawable.img_estadio_dormunt, "Signal Iduna Park");
+        Estadio estadioBenfica=new Estadio("Estádio da Luz", R.drawable.img_estadio_benfica,"https://es.wikipedia.org/wiki/Est%C3%A1dio_da_Luz");
+        Estadio estadioDormunt = new Estadio("Signal Iduna Park",R.drawable.img_estadio_dormunt,"https://es.wikipedia.org/wiki/Signal_Iduna_Park");
+
+        Equipo benfica = new Equipo("Benfica", R.drawable.img_benfica, ruiVitoria, "los portugueses quieren ganar y blablabla",estadioBenfica , "http://www.slbenfica.pt");
+        Equipo dormunt = new Equipo("Dormunt", R.drawable.img_dormunt, thomasTuchel, "wqwertyuiop`wertyuaskdn aslnkankl asnldknsa (esta en aleman)",estadioDormunt , "http://www.bvb.de/");
 
         introducirJugadores(benfica);
         introducirJugadores(dormunt);
@@ -68,8 +75,11 @@ public class PartiHub {
         listaEntrenadores.add(carloAnchelotti);
         listaEntrenadores.add(arseneWenger);
 
-        Equipo bayern = new Equipo("Bayern", R.drawable.img_bayern, carloAnchelotti, "acaban de salir de comprar aspirinas para estar en formma", R.drawable.img_estadio_bayern, "Allianz arena");
-        Equipo arsenal = new Equipo("Arsenal", R.drawable.img_arsenal, arseneWenger, "eisteoe toeso saof eoa soeo as (totalmente claro verdad?)", R.drawable.img_estadio_arsenal, "Emirates stadium");
+        Estadio estadioBayern=new Estadio("Allianz arena", R.drawable.img_estadio_bayern,"https://es.wikipedia.org/wiki/Allianz_Arena");
+        Estadio estadioArsenal = new Estadio("Emirates stadium", R.drawable.img_estadio_arsenal,"https://es.wikipedia.org/wiki/Emirates_Stadium");
+
+        Equipo bayern = new Equipo("Bayern", R.drawable.img_bayern, carloAnchelotti, "acaban de salir de comprar aspirinas para estar en formma",estadioBayern, "https://fcbayern.com/");
+        Equipo arsenal = new Equipo("Arsenal", R.drawable.img_arsenal, arseneWenger, "eisteoe toeso saof eoa soeo as (totalmente claro verdad?)",estadioArsenal, "http://www.arsenal.com/");
 
         introducirJugadores(bayern);
         introducirJugadores(arsenal);
@@ -84,8 +94,12 @@ public class PartiHub {
         sarri.setPosicion("Entrenador");
         listaEntrenadores.add(zidane);
         listaEntrenadores.add(sarri);
-        Equipo madrid = new Equipo("Real Madrid", R.drawable.img_madrid, zidane, "poco que decir sobre el conjunto merengue", R.drawable.img_estadio_madrid, "Santiago Bernabeu");
-        Equipo napoles = new Equipo("napoles", R.drawable.img_napoli, sarri, "qwertyuiopàsdfghjklzxcvbnm (del latin 'querer ganar a toda costa')", R.drawable.img_estadio_napoli, "Sao Paolo");
+
+        Estadio estadioMadrid=new Estadio("Santiago Bernabeu", R.drawable.img_estadio_madrid,"https://es.wikipedia.org/wiki/Estadio_Santiago_Bernab%C3%A9u");
+        Estadio estadioNapoles = new Estadio("Sao Paolo", R.drawable.img_estadio_napoli,"https://es.wikipedia.org/wiki/Estadio_San_Paolo");
+
+        Equipo madrid = new Equipo("Real Madrid", R.drawable.img_madrid, zidane, "poco que decir sobre el conjunto merengue",estadioMadrid , "http://www.realmadrid.com/");
+        Equipo napoles = new Equipo("napoles", R.drawable.img_napoli, sarri, "qwertyuiopàsdfghjklzxcvbnm (del latin 'querer ganar a toda costa')",estadioNapoles, "http://www.sscnapoli.it/");
 
         introducirJugadores(madrid);
         introducirJugadores(napoles);

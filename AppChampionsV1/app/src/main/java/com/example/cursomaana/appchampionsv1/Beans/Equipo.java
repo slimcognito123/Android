@@ -11,21 +11,21 @@ public class Equipo {
     private Integer escudo;
     private Jugador entrenador;
     private String estado;
-    private Integer imagenEstadio;
-    private String nombreEstadio;
+    private Estadio estadio;
+    private String paginaWeb;
     private ArrayList<Jugador> jugadores;
 
     public Equipo() {
 
     }
 
-    public Equipo(String nombre, Integer escudo, Jugador entrenador, String estado, Integer imagenEstadio, String nombreEstadio) {
+    public Equipo(String nombre, Integer escudo, Jugador entrenador, String estado, Estadio estadio, String paginaWeb) {
         this.nombre = nombre;
         this.escudo = escudo;
         this.entrenador = entrenador;
         this.estado = estado;
-        this.imagenEstadio = imagenEstadio;
-        this.nombreEstadio = nombreEstadio;
+        this.estadio = estadio;
+        this.paginaWeb = paginaWeb;
     }
 
     public String getNombre() {
@@ -60,20 +60,20 @@ public class Equipo {
         this.estado = estado;
     }
 
-    public Integer getImagenEstadio() {
-        return imagenEstadio;
+    public Estadio getEstadio() {
+        return estadio;
     }
 
-    public void setImagenEstadio(Integer imagenEstadio) {
-        this.imagenEstadio = imagenEstadio;
+    public void setEstadio(Estadio estadio) {
+        this.estadio = estadio;
     }
 
-    public String getNombreEstadio() {
-        return nombreEstadio;
+    public String getPaginaWeb() {
+        return paginaWeb;
     }
 
-    public void setNombreEstadio(String nombreEstadio) {
-        this.nombreEstadio = nombreEstadio;
+    public void setPaginaWeb(String paginaWeb) {
+        this.paginaWeb = paginaWeb;
     }
 
     public ArrayList<Jugador> getJugadores() {

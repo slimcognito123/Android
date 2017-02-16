@@ -1,6 +1,7 @@
 package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.cursomaana.appchampionsv1.Beans.Equipo;
 import com.example.cursomaana.appchampionsv1.Beans.Jugador;
+import com.example.cursomaana.appchampionsv1.Model.InstanciaRepo;
 import com.example.cursomaana.appchampionsv1.Model.PartiHub;
 import com.example.cursomaana.appchampionsv1.R;
 
@@ -26,7 +28,7 @@ public class DetalleEquipo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_equipo);
         Intent intent = this.getIntent();
-        final Equipo team= new PartiHub().findTeam(intent.getStringExtra("equipo"));
+        final Equipo team= InstanciaRepo.getInstance().findTeam(intent.getStringExtra("equipo"));
         escudo = (ImageView) findViewById(R.id.imagenEscudo);
         entrenador = (ImageView) findViewById(R.id.perfilEntrenador);
         nombreEntrenador = (TextView) findViewById(R.id.nombreEntrenadorDetalle);
@@ -55,6 +57,14 @@ public class DetalleEquipo extends AppCompatActivity {
                 intent.putExtra("equipo",team.getNombre());
                 intent.putExtra("isCoach",true);
                 startActivity(intent);
+            }
+        });
+        escudo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(team.getPaginaWeb()));
+                startActivity(i);
             }
         });
     }

@@ -1,14 +1,16 @@
 package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cursomaana.appchampionsv1.Beans.Estadio;
 import com.example.cursomaana.appchampionsv1.Beans.Partido;
-import com.example.cursomaana.appchampionsv1.Model.PartiHub;
+import com.example.cursomaana.appchampionsv1.Model.InstanciaRepo;
 import com.example.cursomaana.appchampionsv1.R;
 
 public class DetallePartido extends AppCompatActivity {
@@ -41,10 +43,11 @@ public class DetallePartido extends AppCompatActivity {
 
         //buscamos el partido
         int id = intent.getExtras().getInt("id");
-        Partido partido = new PartiHub().buscarPartido(id);
+        Partido partido = InstanciaRepo.getInstance().buscarPartido(id);
 
-        estadio.setText(partido.getLocal().getNombreEstadio());
-        imgEstadio.setImageResource(partido.getLocal().getImagenEstadio());
+        final Estadio estadioPartido = partido.getLocal().getEstadio();
+        this.estadio.setText(estadioPartido.getNombreEstadio());
+        imgEstadio.setImageResource(estadioPartido.getImagenEstadio());
 
         escudoLocal.setImageResource(partido.getLocal().getEscudo());
         nombreLocal.setText(partido.getLocal().getNombre());
@@ -55,7 +58,6 @@ public class DetallePartido extends AppCompatActivity {
         nombreVisitante.setText(partido.getVisitante().getNombre());
         entrenadorVisitante.setText(partido.getVisitante().getEntrenador().getNombre());
         estadoVisitante.setText(partido.getVisitante().getEstado());
-
         escudoLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +74,13 @@ public class DetallePartido extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        imgEstadio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(estadioPartido.getPaginaWeb()));
+                startActivity(i);
+            }
+        });
     }
 }

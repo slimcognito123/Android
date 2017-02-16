@@ -1,6 +1,7 @@
 package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,15 @@ import java.util.ArrayList;
  * Created by curso mañana on 14/02/2017.
  */
 class AdaptadorPartidos extends ArrayAdapter<Partido> {
-    public AdaptadorPartidos(Context context,ArrayList<Partido> datos) {
+
+    private TextView nombreLocal;
+    private TextView nombreVisitante;
+    private ImageView imagenLocal;
+    private ImageView imagenVisitante;
+    private TextView hora;
+    private TextView dia;
+
+    public AdaptadorPartidos(Context context, ArrayList<Partido> datos) {
         super(context, R.layout.elemento_lista_octavos, datos);
     }
 
@@ -29,23 +38,43 @@ class AdaptadorPartidos extends ArrayAdapter<Partido> {
             itenViu = inflater.inflate(R.layout.elemento_lista_octavos , null);
         }
 
-        TextView nombreLocal = (TextView) itenViu.findViewById(R.id.tagEquipoLocal);
-        TextView nombreVisitante = (TextView) itenViu.findViewById(R.id.tagEquipoVisitante);
-        ImageView imagenLocal = (ImageView) itenViu.findViewById(R.id.tagImagenLocal);
-        ImageView imagenVisitante = (ImageView) itenViu.findViewById(R.id.tagEscudoVisitante);
-        TextView hora = (TextView) itenViu.findViewById(R.id.tagHora);
-        TextView dia = (TextView) itenViu.findViewById(R.id.tagDia);
+        nombreLocal = (TextView) itenViu.findViewById(R.id.tagEquipoLocal);
+        nombreVisitante = (TextView) itenViu.findViewById(R.id.tagEquipoVisitante);
+        imagenLocal = (ImageView) itenViu.findViewById(R.id.tagImagenLocal);
+        imagenVisitante = (ImageView) itenViu.findViewById(R.id.tagEscudoVisitante);
+        hora = (TextView) itenViu.findViewById(R.id.tagHora);
+        dia = (TextView) itenViu.findViewById(R.id.tagDia);
 
-        nombreLocal.setText(getItem(position).getLocal().getNombre());
-        imagenLocal.setImageResource(getItem(position).getLocal().getEscudo());
+        final Partido partido = getItem(position);
 
-        hora.setText(getItem(position).getHora());
-        dia.setText(getItem(position).getFecha());
+        nombreLocal.setText(partido.getLocal().getNombre());
+        imagenLocal.setImageResource(partido.getLocal().getEscudo());
 
-        nombreVisitante.setText(getItem(position).getVisitante().getNombre());
-        imagenVisitante.setImageResource(getItem(position).getVisitante().getEscudo());
+        hora.setText(partido.getHora());
+        dia.setText(partido.getFecha());
 
+        nombreVisitante.setText(partido.getVisitante().getNombre());
+        imagenVisitante.setImageResource(partido.getVisitante().getEscudo());
+
+        imagenLocal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (getContext(),DetalleEquipo.class);
+                intent.putExtra("equipo",partido.getLocal().getNombre());
+                getContext().startActivity(intent);
+            }
+        });
+
+        imagenVisitante.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (getContext(),DetalleEquipo.class);
+                intent.putExtra("equipo",partido.getVisitante().getNombre());
+                getContext().startActivity(intent);
+            }
+        });
 
         return (itenViu);
     }
+
 }

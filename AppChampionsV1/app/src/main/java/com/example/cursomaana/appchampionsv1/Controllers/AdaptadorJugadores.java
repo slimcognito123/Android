@@ -19,25 +19,26 @@ import java.util.ArrayList;
  * Created by curso mañana on 15/02/2017.
  */
 public class AdaptadorJugadores extends ArrayAdapter<Jugador> {
-public AdaptadorJugadores(Context context,Equipo datos) {
+    public AdaptadorJugadores(Context context, Equipo datos) {
         super(context, R.layout.elemento_jugadores, datos.getJugadores());
+    }
+
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        View itenViu = convertView;
+        if (itenViu == null) {
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            itenViu = inflater.inflate(R.layout.elemento_jugadores, null);
         }
 
-public View getView(int position, View convertView, ViewGroup parent) {
-
-        View itenViu=convertView;
-        if(itenViu==null){
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        itenViu = inflater.inflate(R.layout.elemento_jugadores , null);
-        }
-
-    //aqui habian cosas
+        //aqui habian cosas
         TextView nombreJugadoryDorsal = (TextView) itenViu.findViewById(R.id.nombreJugador);
         ImageView imgJugador = (ImageView) itenViu.findViewById(R.id.imgJugador);
 
-        nombreJugadoryDorsal.setText(getItem(position).getNombre()+"  nº"+getItem(position).getNumeroDorsal());
+        nombreJugadoryDorsal.setText(getItem(position).getNombre() + "  nº" + getItem(position).getNumeroDorsal());
         imgJugador.setImageResource(getItem(position).getImgPerfil());
 
         return (itenViu);
-        }
+    }
+
 }
