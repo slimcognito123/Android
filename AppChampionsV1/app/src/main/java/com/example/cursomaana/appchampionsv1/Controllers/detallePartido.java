@@ -1,9 +1,13 @@
 package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +28,8 @@ public class DetallePartido extends AppCompatActivity {
     private TextView estadoVisitante;
     private ImageView escudoLocal;
     private ImageView escudoVisitante;
+    private View layout;
+    private int color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,8 @@ public class DetallePartido extends AppCompatActivity {
         estadoVisitante= (TextView) findViewById(R.id.tagEstadoVisitante);
         escudoLocal= (ImageView) findViewById(R.id.tagEscudoEquipoLocal);
         escudoVisitante= (ImageView) findViewById(R.id.tagEscudoEquipoVisitante);
+        layout = findViewById(R.id.activity_detalle_partido);
+        layout.setBackgroundColor(intent.getIntExtra("tema", Color.WHITE));
 
         //buscamos el partido
         int id = intent.getExtras().getInt("id");
@@ -58,11 +66,13 @@ public class DetallePartido extends AppCompatActivity {
         nombreVisitante.setText(partido.getVisitante().getNombre());
         entrenadorVisitante.setText(partido.getVisitante().getEntrenador().getNombre());
         estadoVisitante.setText(partido.getVisitante().getEstado());
+
         escudoLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DetallePartido.this, DetalleEquipo.class);
                 intent.putExtra("equipo",nombreLocal.getText());
+                intent.putExtra("tema",color);
                 startActivity(intent);
             }
         });
@@ -71,6 +81,7 @@ public class DetallePartido extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(DetallePartido.this, DetalleEquipo.class);
                 intent.putExtra("equipo",nombreVisitante.getText());
+                intent.putExtra("tema",color);
                 startActivity(intent);
             }
         });
@@ -82,5 +93,27 @@ public class DetallePartido extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id= item.getItemId();
+        switch (id){
+            case R.id.settings1_1:
+                color = ContextCompat.getColor(this, android.R.color.holo_blue_light);
+                layout.setBackgroundColor(color);
+                break;
+            case R.id.settings1_2:
+                color = Color.WHITE;
+                layout.setBackgroundColor(color);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

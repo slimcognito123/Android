@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="tema"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/settings1.1"
+                android:title="azul" />
+            <item
+                android:id="@+id/settings1.2"
+                android:title="blanco" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_buscar"
+        android:icon="@drawable/ic_buscar"
+        android:orderInCategory="100"
+        android:title="buscar"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_nuevo"
+        android:icon="@drawable/ic_nuevo"
+        android:orderInCategory="100"
+        android:title="nuevo"
+        app:showAsAction="ifRoom|withText" />
+
+</menu>

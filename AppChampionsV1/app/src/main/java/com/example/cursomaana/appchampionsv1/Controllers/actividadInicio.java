@@ -121,12 +121,14 @@ public class ActividadInicio extends AppCompatActivity {
                 ActividadInicio.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(ActividadInicio.this,MainActivity.class));
+                        Intent intent = new Intent(ActividadInicio.this, MainActivity.class);
+                        intent.putExtra("tema", android.R.color.holo_blue_light);
+                        startActivity(intent);
                         finish();
                     }
                 });
             }
-        }, 4000);
+        }, 3000);
     }
 
     private void hide() {
