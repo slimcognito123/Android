@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cueva_cho_ching"
-    tools:context="com.example.cursomaana.garqhusa.Activities.pantallasExploracion.PrimeraPantalla">
+    android:id="@+id/layoutFondo"
+    android:background="#0099cc"
+    tools:context="com.example.cursomaana.garqhusa.Activities.pantallasExploracion.PantallaCueva1">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -16,7 +17,8 @@
         android:keepScreenOn="true"
         android:textColor="#33b5e5"
         android:textSize="50sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@android:drawable/divider_horizontal_bright" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
@@ -94,4 +96,5 @@
 
         </RelativeLayout>
     </FrameLayout>
+
 </FrameLayout>

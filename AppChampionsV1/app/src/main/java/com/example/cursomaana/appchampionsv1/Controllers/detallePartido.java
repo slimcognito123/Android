@@ -70,7 +70,7 @@ public class DetallePartido extends AppCompatActivity {
         escudoLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetallePartido.this, DetalleEquipo.class);
+                Intent intent = new Intent(DetallePartido.this, DetalleEquipoActivity.class);
                 intent.putExtra("equipo",nombreLocal.getText());
                 intent.putExtra("tema",color);
                 startActivity(intent);
@@ -79,7 +79,7 @@ public class DetallePartido extends AppCompatActivity {
         escudoVisitante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetallePartido.this, DetalleEquipo.class);
+                Intent intent = new Intent(DetallePartido.this, DetalleEquipoActivity.class);
                 intent.putExtra("equipo",nombreVisitante.getText());
                 intent.putExtra("tema",color);
                 startActivity(intent);

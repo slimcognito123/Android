@@ -59,7 +59,7 @@ class AdaptadorPartidos extends ArrayAdapter<Partido> {
         imagenLocal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (getContext(),DetalleEquipo.class);
+                Intent intent = new Intent (getContext(),DetalleEquipoActivity.class);
                 intent.putExtra("equipo",partido.getLocal().getNombre());
                 getContext().startActivity(intent);
             }
@@ -68,7 +68,7 @@ class AdaptadorPartidos extends ArrayAdapter<Partido> {
         imagenVisitante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (getContext(),DetalleEquipo.class);
+                Intent intent = new Intent (getContext(),DetalleEquipoActivity.class);
                 intent.putExtra("equipo",partido.getVisitante().getNombre());
                 getContext().startActivity(intent);
             }

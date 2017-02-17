@@ -57,7 +57,7 @@
                 android:text="Continue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
+                android:id="@+id/buttonCargarPartida"
                 android:background="@android:drawable/screen_background_light_transparent"
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="20dp"
