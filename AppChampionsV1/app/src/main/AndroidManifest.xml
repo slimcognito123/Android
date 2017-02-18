@@ -11,7 +11,7 @@
         <activity android:name=".Controllers.MainActivity" />
         <activity android:name=".Controllers.DetallePartido" />
         <activity
-            android:name=".Controllers.ActividadInicio"
+            android:name=".Controllers.InicioActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controllers.DetalleEquipo" />
+        <activity android:name=".Controllers.DetalleEquipoActivity" />
         <activity android:name=".Controllers.DetallesJugador"></activity>
     </application>
 

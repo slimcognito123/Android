@@ -2,6 +2,8 @@ package com.example.cursomaana.garqhusa;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +12,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.cursomaana.garqhusa.Activities.pantallasExploracion.PantallaCristal1;
 import com.example.cursomaana.garqhusa.Activities.pantallasExploracion.PrimeraPantalla;
+import com.google.gson.Gson;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -119,12 +123,26 @@ public class MainMenuActivity extends AppCompatActivity {
 
     private void inicialize() {
         Button nuevaPartida = (Button) findViewById(R.id.botonNuevaPartida);
+        Button cargarPartida = (Button) findViewById(R.id.buttonCargarPartida);
         nuevaPartida.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(MainMenuActivity.this, PrimeraPantalla.class);
-                intento.putExtra("bienvenida",true);
+                intento.putExtra("bienvenida", true);
                 startActivity(intento);
+            }
+        });
+        cargarPartida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                String partida = archivoGuardado.getString("partidaGuardada", "Error");
+                Gson gson = new Gson();
+                PartidaGuardada partidaGuardada = gson.fromJson(partida, PartidaGuardada.class);
+                Intent intent = new Intent(MainMenuActivity.this, partidaGuardada.getActivity().getClass());
+                intent.putExtras(partidaGuardada.getExtras());
+                startActivity(intent);
             }
         });
     }

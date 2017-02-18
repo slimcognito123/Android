@@ -2,22 +2,31 @@ package com.example.cursomaana.garqhusa.Activities.pantallasExploracion;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cursomaana.garqhusa.PartidaGuardada;
 import com.example.cursomaana.garqhusa.R;
+import com.google.gson.Gson;
+
+import java.util.Map;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class PrimeraPantalla extends AppCompatActivity {
+public class PantallaCristal1 extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -92,7 +101,7 @@ public class PrimeraPantalla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_primera_pantalla);
+        setContentView(R.layout.activity_pantalla_cristal1);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -100,7 +109,6 @@ public class PrimeraPantalla extends AppCompatActivity {
 
 
         // Set up the user interaction to manually show or hide the system UI.
-
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -115,42 +123,57 @@ public class PrimeraPantalla extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(0);
-        inicialize();
+        incialize();
     }
 
-    private void inicialize() {
-        TextView textoEnPantalla= (TextView) findViewById(R.id.TextoPantalla);
-        Button opcion1 = (Button) findViewById(R.id.opcion1);
-        Button opcion2 = (Button) findViewById(R.id.opcion2);
-        final Intent lastIntent=getIntent();
-        if(lastIntent.getBooleanExtra("bienvenida",false)){
-            textoEnPantalla.setText("Te despiertas enfrente de una cueva con tan solo tus pantalones y tu camiseta de hilo, debes encontrar algo" +
-                    " para pasar la noche");
-            opcion1.setText("explorar la cueva");
-            opcion2.setText("seguir el sendero tras de ti");
-        }else{
-            textoEnPantalla.setText("Vuelves a la entrada de la misma cueva de antes");
-            opcion1.setText("explorar la cueva");
-            opcion2.setText("volver sobre tus pasos");
-        }
+    private void incialize() {
+        final Button opcion1 = (Button) findViewById(R.id.opcion1);
+        final Button opcion2 = (Button) findViewById(R.id.opcion2);
+        final TextView texto = (TextView) findViewById(R.id.TextoPantalla);
+        opcion1.setText("Guardar");
+        opcion2.setText("No guardar");
+        texto.setText("Hay un cristal de de vitalidad, has curado tus heridas.\n Deseas guardar la partida?");
+        final Intent lastIntent = getIntent();
+        lastIntent.putExtra("bienvenida", false);
         opcion1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(PrimeraPantalla.this, PantallaCueva1.class);
-                intent.putExtras(lastIntent.getExtras());
-                startActivity(intent);
-                finish();
+
+                AsyncTask asyncTask =new AsyncTask() {
+                    @Override
+                    protected Object doInBackground(Object[] params) {
+                        SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        SharedPreferences.Editor editor = archivoGuardado.edit();
+                        Gson gson = new Gson();
+                        PartidaGuardada partidaGuardada = new PartidaGuardada(PantallaCristal1.this, lastIntent.getExtras());
+                        Log.i("partida guardada", String.valueOf(partidaGuardada));
+                        String partida = gson.toJson(partidaGuardada);
+                        editor.putString("guardarPartida", partida);
+                        editor.commit();
+                        return true;
+                    }
+                };
+                asyncTask.execute();
+                Toast toast1 =Toast.makeText(getApplicationContext(),"Partida guardada", Toast.LENGTH_SHORT);
+                toast1.show();
+                cambiarUso(opcion1,opcion2,texto);
             }
         });
         opcion2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(PrimeraPantalla.this, PantallaCristal1.class);
-                intent.putExtras(lastIntent.getExtras());
-                startActivity(intent);
-                finish();
+                cambiarUso(opcion1,opcion2,texto);
             }
         });
+
+    }
+
+    private void cambiarUso(Button opcion1, Button opcion2, TextView texto) {
+        SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Map<String, ?> allEntries = archivoGuardado.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            Log.e("map values", entry.getKey() + ": " + entry.getValue().toString());
+        }
     }
 
 
@@ -188,4 +211,5 @@ public class PrimeraPantalla extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
 }

@@ -1,23 +1,24 @@
-package com.example.cursomaana.garqhusa.Activities.pantallasExploracion;
+package com.example.cursomaana.appchampionsv1.Controllers;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.example.cursomaana.garqhusa.R;
+import com.example.cursomaana.appchampionsv1.R;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class PrimeraPantalla extends AppCompatActivity {
+public class InicioActivity extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -92,7 +93,7 @@ public class PrimeraPantalla extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_primera_pantalla);
+        setContentView(R.layout.activity_actividad_inicio);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -100,7 +101,6 @@ public class PrimeraPantalla extends AppCompatActivity {
 
 
         // Set up the user interaction to manually show or hide the system UI.
-
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -115,44 +115,21 @@ public class PrimeraPantalla extends AppCompatActivity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(0);
-        inicialize();
-    }
-
-    private void inicialize() {
-        TextView textoEnPantalla= (TextView) findViewById(R.id.TextoPantalla);
-        Button opcion1 = (Button) findViewById(R.id.opcion1);
-        Button opcion2 = (Button) findViewById(R.id.opcion2);
-        final Intent lastIntent=getIntent();
-        if(lastIntent.getBooleanExtra("bienvenida",false)){
-            textoEnPantalla.setText("Te despiertas enfrente de una cueva con tan solo tus pantalones y tu camiseta de hilo, debes encontrar algo" +
-                    " para pasar la noche");
-            opcion1.setText("explorar la cueva");
-            opcion2.setText("seguir el sendero tras de ti");
-        }else{
-            textoEnPantalla.setText("Vuelves a la entrada de la misma cueva de antes");
-            opcion1.setText("explorar la cueva");
-            opcion2.setText("volver sobre tus pasos");
-        }
-        opcion1.setOnClickListener(new View.OnClickListener() {
+        new Timer().schedule(new TimerTask() {
             @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent(PrimeraPantalla.this, PantallaCueva1.class);
-                intent.putExtras(lastIntent.getExtras());
-                startActivity(intent);
-                finish();
+            public void run() {
+                InicioActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(InicioActivity.this, MainActivity.class);
+                        intent.putExtra("tema", android.R.color.holo_blue_light);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
             }
-        });
-        opcion2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent  = new Intent(PrimeraPantalla.this, PantallaCristal1.class);
-                intent.putExtras(lastIntent.getExtras());
-                startActivity(intent);
-                finish();
-            }
-        });
+        }, 3000);
     }
-
 
     private void hide() {
         // Hide UI first

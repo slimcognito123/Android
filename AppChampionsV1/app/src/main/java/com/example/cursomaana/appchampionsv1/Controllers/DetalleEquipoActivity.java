@@ -19,7 +19,7 @@ import com.example.cursomaana.appchampionsv1.Beans.Jugador;
 import com.example.cursomaana.appchampionsv1.Model.InstanciaRepo;
 import com.example.cursomaana.appchampionsv1.R;
 
-public class DetalleEquipo extends AppCompatActivity {
+public class DetalleEquipoActivity extends AppCompatActivity {
     private ImageView escudo;
     private ImageView entrenador;
     private TextView nombreEquipo;
@@ -55,7 +55,7 @@ public class DetalleEquipo extends AppCompatActivity {
         regilla.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int posicion, long id) {
-                Intent intent = new Intent (DetalleEquipo.this,DetallesJugador.class);
+                Intent intent = new Intent (DetalleEquipoActivity.this,DetallesJugador.class);
                 intent.putExtra("equipo",team.getNombre());
                 intent.putExtra("nombreJugador",((Jugador)regilla.getItemAtPosition(posicion)).getNombre());
                 startActivity(intent);
@@ -64,7 +64,7 @@ public class DetalleEquipo extends AppCompatActivity {
         entrenador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (DetalleEquipo.this,DetallesJugador.class);
+                Intent intent = new Intent (DetalleEquipoActivity.this,DetallesJugador.class);
                 intent.putExtra("equipo",team.getNombre());
                 intent.putExtra("isCoach",true);
                 startActivity(intent);

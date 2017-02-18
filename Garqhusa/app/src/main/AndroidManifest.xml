@@ -25,18 +25,23 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_main_menu"
             android:screenOrientation="landscape"
-            android:theme="@style/FullscreenTheme">
-
-        </activity>
-
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".Activities.pantallasExploracion.PrimeraPantalla"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape"
             android:label="@string/title_activity_primera_pantalla"
-            android:theme="@style/FullscreenTheme">
-
-        </activity>
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Activities.pantallasExploracion.PantallaCueva1"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pantalla_cueva1"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Activities.pantallasExploracion.PantallaCristal1"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pantalla_cristal1"
+            android:theme="@style/FullscreenTheme"></activity>
     </application>
 
 </manifest>

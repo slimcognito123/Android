@@ -7,4 +7,8 @@
     <string name="title_activity_main_menu">MainMenuActivity</string>
 
     <string name="title_activity_primera_pantalla">PrimeraPantalla</string>
+
+    <string name="title_activity_pantalla_cueva1">PantallaCueva1</string>
+
+    <string name="title_activity_pantalla_cristal1">PantallaCristal1</string>
 </resources>
