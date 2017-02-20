@@ -1,5 +1,6 @@
 package com.example.cursomaana.garqhusa;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -10,6 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 public class PartidaGuardada {
     AppCompatActivity activity;
     Bundle extras;
+    Intent intent;
+
+    public PartidaGuardada(Intent intent) {
+        this.intent = intent;
+    }
 
     public PartidaGuardada() {
     }
@@ -33,5 +39,9 @@ public class PartidaGuardada {
 
     public void setExtras(Bundle extras) {
         this.extras = extras;
+    }
+
+    public Intent getIntent() {
+        return intent;
     }
 }

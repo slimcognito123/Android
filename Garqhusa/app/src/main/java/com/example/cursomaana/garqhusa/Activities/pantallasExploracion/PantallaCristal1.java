@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cursomaana.garqhusa.MainMenuActivity;
 import com.example.cursomaana.garqhusa.PartidaGuardada;
 import com.example.cursomaana.garqhusa.R;
 import com.google.gson.Gson;
@@ -139,21 +140,23 @@ public class PantallaCristal1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                AsyncTask asyncTask =new AsyncTask() {
+                final AsyncTask asyncTask =new AsyncTask() {
                     @Override
-                    protected Object doInBackground(Object[] params) {
+                    protected Boolean doInBackground(Object[] params) {
                         SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                         SharedPreferences.Editor editor = archivoGuardado.edit();
                         Gson gson = new Gson();
-                        PartidaGuardada partidaGuardada = new PartidaGuardada(PantallaCristal1.this, lastIntent.getExtras());
-                        Log.i("partida guardada", String.valueOf(partidaGuardada));
-                        String partida = gson.toJson(partidaGuardada);
+                        Intent intentoGuardarPartida= new Intent(PantallaCristal1.this,PantallaCristal1.this.getClass());
+//                        PartidaGuardada partidaGuardada = new PartidaGuardada(PantallaCristal1.this, lastIntent.getExtras());
+                        PartidaGuardada partidaGuardada = new PartidaGuardada(intentoGuardarPartida);
+//                        Log.i("partida guardada", String.valueOf(partidaGuardada));
+                        String partida = gson.toJson(intentoGuardarPartida);
                         editor.putString("guardarPartida", partida);
-                        editor.commit();
-                        return true;
+                        return editor.commit();
                     }
                 };
                 asyncTask.execute();
+
                 Toast toast1 =Toast.makeText(getApplicationContext(),"Partida guardada", Toast.LENGTH_SHORT);
                 toast1.show();
                 cambiarUso(opcion1,opcion2,texto);
@@ -169,11 +172,12 @@ public class PantallaCristal1 extends AppCompatActivity {
     }
 
     private void cambiarUso(Button opcion1, Button opcion2, TextView texto) {
-        SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        /*SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Map<String, ?> allEntries = archivoGuardado.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             Log.e("map values", entry.getKey() + ": " + entry.getValue().toString());
-        }
+        }*/
+        texto.setText("pene");
     }
 
 

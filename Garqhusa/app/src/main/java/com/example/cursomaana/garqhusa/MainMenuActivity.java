@@ -137,12 +137,22 @@ public class MainMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                String partida = archivoGuardado.getString("partidaGuardada", "Error");
-                Gson gson = new Gson();
-                PartidaGuardada partidaGuardada = gson.fromJson(partida, PartidaGuardada.class);
-                Intent intent = new Intent(MainMenuActivity.this, partidaGuardada.getActivity().getClass());
-                intent.putExtras(partidaGuardada.getExtras());
-                startActivity(intent);
+                String partida = archivoGuardado.getString("guardarPartida", "Error");
+                if(partida.equals("Error")){
+                    Intent intento = new Intent(MainMenuActivity.this, PrimeraPantalla.class);
+                    intento.putExtra("bienvenida", true);
+                    startActivity(intento);
+                }else{
+                    Gson gson = new Gson();
+                    Intent intento = gson.fromJson(partida,Intent.class);
+                    intento.setAction(String.valueOf(MainMenuActivity.this));
+//                    PartidaGuardada partidaGuardada = gson.fromJson(partida, PartidaGuardada.class);
+//                    Intent intent = new Intent(partidaGuardada.getIntent());
+//                    intent.setAction(String.valueOf(MainMenuActivity.this));
+//                    intent.putExtras(partidaGuardada.getExtras());
+                    startActivity(intento);
+                }
+
             }
         });
     }
