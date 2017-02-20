@@ -41,6 +41,16 @@
             android:name=".Activities.pantallasExploracion.PantallaCristal1"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_pantalla_cristal1"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Activities.pantallasExploracion.PuertaTemploCeleste"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_puerta_ciudad"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".Activities.pantallasExploracion.TemploCeleste1"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_villa_celeste"
             android:theme="@style/FullscreenTheme"></activity>
     </application>
 

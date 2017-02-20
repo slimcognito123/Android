@@ -1,30 +1,20 @@
 package com.example.cursomaana.garqhusa.Activities.pantallasExploracion;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.cursomaana.garqhusa.PartidaGuardada;
 import com.example.cursomaana.garqhusa.R;
-import com.google.gson.Gson;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class PantallaCristal1 extends AppCompatActivity {
+public class TemploCeleste1 extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -94,12 +84,12 @@ public class PantallaCristal1 extends AppCompatActivity {
             return false;
         }
     };
-    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_pantalla_cristal1);
+        setContentView(R.layout.activity_templo_celeste1);
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -120,86 +110,8 @@ public class PantallaCristal1 extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        mediaPlayer = MediaPlayer.create(this,R.raw.ffxii_land_of_memories);
-        mediaPlayer.setVolume(100,100);
-        mediaPlayer.start();
         delayedHide(0);
-        incialize();
     }
-
-    private void incialize() {
-        final Button opcion1 = (Button) findViewById(R.id.opcion1);
-        final Button opcion2 = (Button) findViewById(R.id.opcion2);
-        final TextView texto = (TextView) findViewById(R.id.TextoPantalla);
-        opcion1.setText("Guardar");
-        opcion2.setText("No guardar");
-        texto.setText("Hay un cristal de de vitalidad, has curado tus heridas.\n Deseas guardar la partida?");
-        final Intent lastIntent;
-        lastIntent = getIntent();
-        lastIntent.putExtra("bienvenida", false);
-        opcion1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                final AsyncTask asyncTask =new AsyncTask() {
-                    @Override
-                    protected Boolean doInBackground(Object[] params) {
-                        SharedPreferences archivoGuardado = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                        SharedPreferences.Editor editor = archivoGuardado.edit();
-                        Gson gson = new Gson();
-                        Intent intentoGuardarPartida= new Intent(PantallaCristal1.this,PantallaCristal1.this.getClass());
-                       /*Bundle bundle = lastIntent.getExtras();
-                        intentoGuardarPartida.putExtras(bundle);*/
-//                        intentoGuardarPartida.putExtras(lastIntent.getExtras());
-//                        PartidaGuardada partidaGuardada = new PartidaGuardada(PantallaCristal1.this, lastIntent.getExtras());
-//                        PartidaGuardada partidaGuardada = new PartidaGuardada(intentoGuardarPartida);
-//                        Log.i("partida guardada", String.valueOf(partidaGuardada));
-                        String partida = gson.toJson(intentoGuardarPartida);
-                        editor.putString("guardarPartida", partida);
-                        return editor.commit();
-                    }
-                };
-                asyncTask.execute();
-
-                Toast toast1 =Toast.makeText(getApplicationContext(),"Partida guardada", Toast.LENGTH_SHORT);
-                toast1.show();
-                cambiarUso(opcion1,opcion2,texto, lastIntent);
-            }
-        });
-        opcion2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cambiarUso(opcion1,opcion2,texto,lastIntent);
-            }
-        });
-
-    }
-
-
-    private void cambiarUso(Button opcion1, Button opcion2, TextView texto, final Intent lastIntent) {
-        opcion1.setText("hacia la cueva");
-        opcion2.setText("direccion contraria a la cueva");
-        texto.setText("Una vez sanadas tus heridas, debes proseguir tu camino");
-        opcion2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent haciaPuertaCiudad = new Intent(PantallaCristal1.this, PuertaTemploCeleste.class);
-                haciaPuertaCiudad.putExtras(lastIntent);
-                startActivity(haciaPuertaCiudad);
-                finish();
-            }
-        });
-        opcion1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent haciaCueva = new Intent(PantallaCristal1.this, PrimeraPantalla.class);
-                haciaCueva.putExtras(lastIntent);
-                startActivity(haciaCueva);
-                finish();
-            }
-        });
-    }
-
 
     private void hide() {
         // Hide UI first
@@ -234,17 +146,5 @@ public class PantallaCristal1 extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
-    }
-
-    @Override
-    protected void onPause() {
-        mediaPlayer.pause();
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        mediaPlayer.start();
-        super.onResume();
     }
 }

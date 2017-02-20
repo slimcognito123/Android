@@ -3,6 +3,7 @@ package com.example.cursomaana.garqhusa;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -90,6 +91,7 @@ public class MainMenuActivity extends AppCompatActivity {
             return false;
         }
     };
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +119,10 @@ public class MainMenuActivity extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
+        mediaPlayer = MediaPlayer.create(this,R.raw.lorekeeper);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.setVolume(100,100);
+        mediaPlayer.start();
         delayedHide(0);
         inicialize();
     }
@@ -191,5 +197,17 @@ public class MainMenuActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    protected void onPause() {
+        mediaPlayer.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        mediaPlayer.start();
+        super.onResume();
     }
 }

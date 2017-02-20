@@ -2,6 +2,7 @@ package com.example.cursomaana.garqhusa.Activities.pantallasExploracion;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -88,6 +89,7 @@ public class PantallaCueva1 extends AppCompatActivity {
             return false;
         }
     };
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +131,9 @@ public class PantallaCueva1 extends AppCompatActivity {
             opcion1.setText("Luchar");
             opcion2.setText("Retroceder");
         }else{
+            mediaPlayer = MediaPlayer.create(this,R.raw.gameover_zeldamm);
+            mediaPlayer.setVolume(100,100);
+            mediaPlayer.start();
             textoEnPantalla.setText("Habia un dragon en la cueva, el cual te ha calcinado con sus llamas.\n GAME OVER");
             opcion1.setVisibility(View.INVISIBLE);
             opcion2.setVisibility(View.INVISIBLE);
@@ -177,5 +182,17 @@ public class PantallaCueva1 extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    protected void onPause() {
+        mediaPlayer.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        mediaPlayer.start();
+        super.onResume();
     }
 }

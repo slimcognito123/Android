@@ -11,4 +11,8 @@
     <string name="title_activity_pantalla_cueva1">PantallaCueva1</string>
 
     <string name="title_activity_pantalla_cristal1">PantallaCristal1</string>
+
+    <string name="title_activity_puerta_ciudad">PuertaCiudad</string>
+
+    <string name="title_activity_villa_celeste">VillaCeleste</string>
 </resources>

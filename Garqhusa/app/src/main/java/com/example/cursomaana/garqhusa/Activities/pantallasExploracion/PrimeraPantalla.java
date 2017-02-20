@@ -2,6 +2,7 @@ package com.example.cursomaana.garqhusa.Activities.pantallasExploracion;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -87,6 +88,7 @@ public class PrimeraPantalla extends AppCompatActivity {
             return false;
         }
     };
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +116,9 @@ public class PrimeraPantalla extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
+        mediaPlayer = MediaPlayer.create(this,R.raw.pajaros1);
+        mediaPlayer.setVolume(100,100);
+        mediaPlayer.start();
         delayedHide(0);
         inicialize();
     }
@@ -187,5 +192,17 @@ public class PrimeraPantalla extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    @Override
+    protected void onPause() {
+        mediaPlayer.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        mediaPlayer.start();
+        super.onResume();
     }
 }
