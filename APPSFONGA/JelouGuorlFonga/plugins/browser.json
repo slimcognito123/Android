@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "es.phonegap.slimcognito123.pe.jelouguorld"
+        }
+    }
+}
