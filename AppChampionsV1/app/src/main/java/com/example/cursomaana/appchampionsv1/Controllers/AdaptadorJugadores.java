@@ -18,8 +18,8 @@ import java.util.ArrayList;
 /**
  * Created by curso mañana on 15/02/2017.
  */
-public class AdaptadorJugadores extends ArrayAdapter<Jugador> {
-    public AdaptadorJugadores(Context context, Equipo datos) {
+class AdaptadorJugadores extends ArrayAdapter<Jugador> {
+    AdaptadorJugadores(Context context, Equipo datos) {
         super(context, R.layout.elemento_jugadores, datos.getJugadores());
     }
 

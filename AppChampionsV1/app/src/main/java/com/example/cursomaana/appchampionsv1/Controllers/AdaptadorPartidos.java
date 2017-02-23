@@ -26,7 +26,7 @@ class AdaptadorPartidos extends ArrayAdapter<Partido> {
     private TextView hora;
     private TextView dia;
 
-    public AdaptadorPartidos(Context context, ArrayList<Partido> datos) {
+    AdaptadorPartidos(Context context, ArrayList<Partido> datos) {
         super(context, R.layout.elemento_lista_octavos, datos);
     }
 
